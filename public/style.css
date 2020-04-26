@@ -1,7 +1,35 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 h1{
     margin-top: 50px;
+}
+#wrapper{
+    height: 400px;
+    width: 100%;
+    display: block;
+    overflow: auto;
+    border: lightblue solid 1.5px;
+    display: flex;
+}
+th, td {
+    text-align: left;
+    padding: 6px;
+}
+tr:nth-child(even) {
+    background-color: rgb(230, 230, 250);
+}
+
+table {
+    border: 1px solid lightblue;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+thead {
+    background-color: lightblue;
 }

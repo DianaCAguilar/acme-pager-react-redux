@@ -8,9 +8,6 @@ class App extends Component {
     constructor(){
         super()
     }
-    // componentDidMount() {
-    //     this.props.load()
-    // }
     render(){
         return (
             <div>

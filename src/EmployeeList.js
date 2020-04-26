@@ -4,35 +4,38 @@ import { connect } from 'react-redux'
 class EmployeeList extends Component {
     render() {
         const { employees } = this.props
-        console.log(employees)
 
         return (
-            <table>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Title</th>
-                </tr>
-                {
-                    employees.rows && employees.rows.map(employee => 
+            <div id='wrapper'>
+                <table>
+                    <thead id='header'>
                         <tr>
-                            <td>{employee.firstName}</td>
-                            <td>{employee.lastName}</td>
-                            <td>{employee.email}</td>
-                            <td>{employee.title}</td>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Title</th>
                         </tr>
-                    )
-                }
-            </table>
+                    </thead>
+                    <tbody>
+                        {
+                            employees.rows && employees.rows.map(employee => 
+                                <tr>
+                                    <td>{employee.firstName}</td>
+                                    <td>{employee.lastName}</td>
+                                    <td>{employee.email}</td>
+                                    <td>{employee.title}</td>
+                                </tr>
+                            )
+                        }
+                    </tbody>
+                </table>
+            </div>
         )
   }
 }
 
 
 const mapStateToProps = ({ employees }) => {
-    //console.log('HEREEEEEEEEEEEEEEEEEE', ownProps)
-    //employees = employees.rows
     return {
         employees
     }
@@ -40,3 +43,7 @@ const mapStateToProps = ({ employees }) => {
 
 
 export default connect(mapStateToProps)(EmployeeList)
+
+
+
+
