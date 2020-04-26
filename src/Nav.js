@@ -8,8 +8,6 @@ const Nav = ({ employees, ownProps }) => {
     const nextPage = Number(ownProps.location.pathname.slice(1)) + 1
     const previousPage = Number(ownProps.history.location.pathname.slice(1)) - 1
     
-    console.log(previousPage)
-
     return (
         <div id='navWrapper'>
             <div id='navInner'>
