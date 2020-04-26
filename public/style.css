@@ -15,6 +15,7 @@ h1{
     border: lightblue solid 1.5px;
     display: flex;
 }
+
 th, td {
     text-align: left;
     padding: 6px;
@@ -29,7 +30,16 @@ table {
     width: 100%;
 }
 
-
 thead {
     background-color: lightblue;
+}
+nav {
+    width: 600px;
+    display: flex;
+    justify-content: space-around;
+    border: lightblue solid 1px;
+    margin-top: 10px;
+    padding: 5px;
+    align-self: center;
+    border-radius: 20px;
 }

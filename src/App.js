@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { HashRouter, Route } from 'react-router-dom'
 import { getEmployees } from './store'
 import EmployeeList from './EmployeeList'
-import { HashRouter, Route } from 'react-router-dom'
+import Nav from './Nav'
 
 class App extends Component {
     constructor(){
@@ -11,11 +12,14 @@ class App extends Component {
     render(){
         return (
             <div>
-                <HashRouter> 
-                    <Route ><h1>ACME PAGER</h1></Route>
-                    <Route path='/:page?' render={({match}) => this.props.load(match.params.page)}/>
-                    <Route path='/' component={ EmployeeList } />
-                </HashRouter>
+                <h1>ACME PAGER</h1>
+                <div>
+                    <HashRouter> 
+                        <Route path='/:page?' render={({match}) => this.props.load(match.params.page)}/>
+                        <Route path='/' component={ EmployeeList } />
+                        <Route component ={ Nav }/>
+                    </HashRouter>
+                </div>
             </div>
         )
     }
