@@ -33,6 +33,12 @@ table {
 thead {
     background-color: lightblue;
 }
+#navWrapper {
+    text-align: center;
+}
+#navInner{
+    display: inline-block;
+}
 nav {
     width: 600px;
     display: flex;
@@ -40,6 +46,14 @@ nav {
     border: lightblue solid 1px;
     margin-top: 10px;
     padding: 5px;
-    align-self: center;
     border-radius: 20px;
+    align-items: center;
 }
+.selected{
+    background-color: rgb(230, 230, 250);
+    border-radius: 50px;
+    padding: 4px 8px;
+}
+a:link {
+    text-decoration: none;
+  }

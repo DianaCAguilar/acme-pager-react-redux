@@ -5,24 +5,24 @@ import { NavLink } from 'react-router-dom'
 const Nav = ({ employees, ownProps }) => {
     const count = employees.count && Math.ceil(Number(employees.count) / 50)
     const totalPages = Array.from({length: count}, (v, k) => k+1); 
-    const currentPage = Number(ownProps.location.pathname.slice(1)) + 1
+    const nextPage = Number(ownProps.location.pathname.slice(1)) + 1
+    const previousPage = Number(ownProps.history.location.pathname.slice(1)) - 1
+    
+    console.log(previousPage)
 
     return (
-        // <nav>
-        //     <NavLink>1</NavLink>
-        //     <NavLink>2</NavLink>
-        //     <NavLink>3</NavLink>
-        // </nav>
-        <nav>
-            <NavLink to={`/${currentPage - 1}`}>Prev</NavLink>
-            {totalPages.map(page => <NavLink to={`/${page - 1}`} >{page}</NavLink>)}
-            <NavLink to={`/${currentPage + 1}`}>Next</NavLink>
-        </nav>
+        <div id='navWrapper'>
+            <div id='navInner'>
+                <nav>
+                    <NavLink activeClassName='selected' to={`/${previousPage}`}>Prev</NavLink>
+                    {totalPages.map(page => <NavLink activeClassName='selected' to={`/${page - 1}`} >{page}</NavLink>)}
+                    <NavLink activeClassName='selected' to={`/${nextPage}`}>Next</NavLink>
+                </nav>
+            </div>
+        </div>
     )
 }
 const mapStateToProps = ({ employees }, ownProps) => {
-    // console.log('props: ', employees)
-    // console.log('ownProps: ', ownProps)
     return {
         employees,
         ownProps
