@@ -5,9 +5,11 @@ import { createLogger } from 'redux-logger'
 
 //constants
 const SET_EMPLOYEES = 'SET_EMPLOYEES'
+const ADD_EMPLOYEE = 'ADD_EMPLOYEE'
 
 //action creators
 const setEmployees = (employees) => ({ type: SET_EMPLOYEES, employees })
+const addEmployee = (employee) => ({ type: ADD_EMPLOYEE, employee })
 
 //thunks
 const getEmployees = (page = 0) => {
@@ -16,11 +18,21 @@ const getEmployees = (page = 0) => {
         return dispatch(setEmployees(employees))
     }
 }
+const createEmployee = (employee) => {
+    return async (dispatch) => {
+        const response = await axios.post(`/api/employees`, employee)
+        return dispatch(addEmployee(response.data))
+    }
+}
+
 
 //reducers
 const employeeReducer = (state = [], action) => {
     if (action.type === SET_EMPLOYEES) {
         return action.employees
+    }
+    if (action.type === ADD_EMPLOYEE) {
+        return [action.employee, ...state]
     }
     return state
 }
@@ -38,5 +50,6 @@ const store = createStore(reducer, applyMiddleware(
 export default store
 
 export {
-    getEmployees
+    getEmployees,
+    createEmployee
 }

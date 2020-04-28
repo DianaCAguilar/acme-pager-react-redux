@@ -56,4 +56,32 @@ nav {
 }
 a:link {
     text-decoration: none;
-  }
+}
+form {
+    padding: 10px;
+    border: rgb(230, 230, 250) 2px solid;
+    margin-bottom: 10px;
+}
+button, input {
+    margin: 5px;
+}
+p {
+    border: rgb(230, 230, 250) 1px solid;
+    border-radius: 10px;
+    text-align: center;
+    width: 100px;
+    margin: 5px;
+    margin-bottom: 15px;
+    padding: 5px;
+    background-color: lightskyblue;
+}
+#form {
+    display: flex;
+    align-items: center;
+}
+h1 {
+    background-color: lightskyblue;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+}

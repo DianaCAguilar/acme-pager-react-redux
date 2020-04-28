@@ -4,6 +4,7 @@ const app = express();
 // Do not touch this file
 const { Employee } = require('./db/index.js');
 
+app.use(express.json())
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(express.static(path.join(__dirname, '..', 'dist')));
 
@@ -37,5 +38,16 @@ app.get('/api/employees/:page?', (req, res, next) => {
     res.status(200).send(results);
   });
 });
+
+app.post('/api/employees', async(req, res, next) => {
+  console.log('HEREEEEE', req.body)
+  try {
+    const employee = await Employee.create(req.body)
+    res.send(employee)
+  } catch (error) {
+    next(error)
+  }
+})
+
 
 module.exports = { app };

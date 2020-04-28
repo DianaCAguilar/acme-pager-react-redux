@@ -4,6 +4,7 @@ import { HashRouter, Route } from 'react-router-dom'
 import { getEmployees } from './store'
 import EmployeeList from './EmployeeList'
 import Nav from './Nav'
+import EmployeeForm from './EmployeeForm'
 
 class App extends Component {
     constructor(){
@@ -15,6 +16,7 @@ class App extends Component {
                 <h1>ACME PAGER</h1>
                 <div>
                     <HashRouter> 
+                        <Route component ={ EmployeeForm }/>
                         <Route path='/:page?' render={({match}) => this.props.load(match.params.page)}/>
                         <Route path='/' component={ EmployeeList } />
                         <Route component ={ Nav }/>
