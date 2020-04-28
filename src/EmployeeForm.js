@@ -13,6 +13,16 @@ class EmployeeForm extends Component {
             error: ''
         }
         this.onSubmit = this.onSubmit.bind(this)
+        this.reset = this.reset.bind(this)
+    }
+    reset() {
+        this.setState({
+            firstName: '',
+            lastName: '',
+            email: '',
+            title: '',
+            error: '' 
+        })
     }
     async onSubmit(ev) {
         ev.preventDefault()
@@ -26,6 +36,7 @@ class EmployeeForm extends Component {
         } catch (error) {
             this.setState({ error: error.response.data.message})
         }
+        this.reset()
     }
     render() {
         const { onSubmit } = this
